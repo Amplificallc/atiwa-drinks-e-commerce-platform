@@ -9,3 +9,8 @@ main{
 {
   transition: 0.3s ease-in-out;
 }
+.active
+{
+  font-weight: bold;
+  color: #059669;
+}

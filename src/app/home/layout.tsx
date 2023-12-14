@@ -1,3 +1,4 @@
+import Navbar from "@/app/Navbar";
 import React from "react";
 
 export default function HomeLayout({
@@ -6,6 +7,7 @@ export default function HomeLayout({
 {
     return(
     <main>
+        <Navbar/>
          {children}
         </main>
     )
