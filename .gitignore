@@ -9,6 +9,10 @@
 # testing
 /coverage
 
+
+# firebase
+/firebase.ts
+
 # next.js
 /.next/
 /out/
