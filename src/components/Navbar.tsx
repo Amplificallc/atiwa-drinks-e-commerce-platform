@@ -25,7 +25,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 ${
         hasShadow ? "shadow-xl" : ""
-      }  transition-shadow text-black `}
+      } bg-white transition-shadow text-black `}
     >
       {/* Navbar content here */}
       <div className="px-6 lg:px-[200px] py-5">

@@ -1,11 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@import url("https://fonts.cdnfonts.com/css/poppins");
+main {
+  font-family: "Poppins", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,4 +15,11 @@
 }
 
 body {
+  .confirm-button:hover {
+    transition: 0.3s ease-in-out;
+  }
+  .active {
+    font-weight: bold;
+    color: #059669;
+  }
 }
