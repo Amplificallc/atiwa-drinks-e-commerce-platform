@@ -1,11 +1,12 @@
-import Image from "next/image";
 import Products from "@/components/Products";
-import { useAuth } from "@/context/AuthContext";
+import React from "react";
 
-export default function Home() {
+const Shop = () => {
   return (
     <div className="mt-[150px]">
       <Products />
     </div>
   );
-}
+};
+
+export default Shop;

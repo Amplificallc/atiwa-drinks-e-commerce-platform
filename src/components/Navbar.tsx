@@ -6,7 +6,6 @@ import { IoBagOutline } from "react-icons/io5";
 const Navbar = () => {
   const [hasShadow, setHasShadow] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,11 +25,11 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 ${
         hasShadow ? "shadow-xl" : ""
-      } bg-white transition-shadow text-black `}
+      }  transition-shadow text-black `}
     >
       {/* Navbar content here */}
-      <div className="container mx-auto lg:px-[150px] py-5">
-        <div className="flex justify-between">
+      <div className="px-6 lg:px-[200px] py-5">
+        <div className="flex justify-between items-center">
           <Link href="/" className="text-xl font-semibold ">
             Attiwa
           </Link>
@@ -40,6 +39,7 @@ const Navbar = () => {
               0
             </div>
           </div>
+          {/* <div>Login</div> */}
         </div>
         {/* Other navbar items */}
       </div>
