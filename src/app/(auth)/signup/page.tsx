@@ -4,20 +4,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase";
+import { getDatabase, ref, set } from "firebase/database";
 
 const SignUp: React.FC = () => {
   const [fullname, setFullname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  // const [confirmPassword, setConfirmPassword] = useState<string>("");
 
   const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
-      const user = await createUserWithEmailAndPassword(auth, email, password);
-      // Handle successful sign-up, like redirecting to the home page
-      console.log("user is", user.user);
+      const userCrendentials = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCrendentials.user;
+      console.log("user is", user);
+
+      // Get a reference to the Realtime Database
+      const db = getDatabase();
+
+      // Create a reference for a new user's data
+      const userRef = ref(db, "users/" + user.uid);
+
+      await set(userRef, {
+        fullname: fullname,
+        email: email,
+      });
+
+      console.log("User created with additional info in Realtime Database");
     } catch (error) {
       // Handle sign-up error
       alert("Error");
