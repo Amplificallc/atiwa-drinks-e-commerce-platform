@@ -1,9 +1,11 @@
-"use client"
 import React from 'react'
 
 const home = () => {
   return (
-    <div> home</div>
+    <section>
+  <h1 className='text-green-600 text-6xl'>Hello World</h1>
+  <h1 className='text-green-600 text-6xl'>Hello World</h1>
+  </section>
   )
 }
 
