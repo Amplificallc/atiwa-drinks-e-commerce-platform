@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import { RiShoppingCart2Fill } from "react-icons/ri";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
@@ -49,8 +50,9 @@ const Navbar = () => {
       </nav>
       <div className="cta-buttons">
         <Link href="/auth/login">
-          <button className="bg-green-600 text-white font-semibold w-40 h-14 rounded-md hover:bg-black">
+          <button className="bg-green-600 text-white font-semibold flex flex-row justify-between items-center px-7 w-40 h-14 rounded-md hover:bg-black">
             Shop Now
+            <RiShoppingCart2Fill className />
           </button>
         </Link>
       </div>
