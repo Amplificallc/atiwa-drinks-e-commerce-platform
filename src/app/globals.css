@@ -6,15 +6,6 @@ main {
   font-family: "Poppins", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
   .confirm-button:hover {
     transition: 0.3s ease-in-out;
   }
@@ -22,4 +13,4 @@ body {
     font-weight: bold;
     color: #059669;
   }
-}
+

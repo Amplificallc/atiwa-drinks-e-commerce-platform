@@ -1,14 +1,15 @@
-import Navbar from "@/app/Navbar";
-import React from "react";
-
-export default function HomeLayout({
-    children}: {children: React.ReactNode}
-)
-{
-    return(
-    <main>
-        <Navbar/>
-         {children}
-        </main>
-    )
-}
+import Navbar from "../Navbar";
+export default function RootLayout({
+    children,
+  }: {
+    children: React.ReactNode;
+  }) {
+    return (
+        <body>
+             <Navbar/>
+              {children}
+        </body>
+    
+    );
+  }
+  
