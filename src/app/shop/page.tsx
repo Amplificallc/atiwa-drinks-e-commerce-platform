@@ -1,9 +1,19 @@
 "use client";
-
-import { useContext } from "react";
-import Products from "@/components/Products";
+import { useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 const Shop = () => {
+  // const { user } = useAuth();
+  // const router = useRouter();
+
+  // useEffect(() => {
+  //   if (!user) {
+  //     router.push("/auth/signup");
+  //   }
+  // }, [user, router]);
+
   return (
     <div className="mt-[150px]">
       <div>
