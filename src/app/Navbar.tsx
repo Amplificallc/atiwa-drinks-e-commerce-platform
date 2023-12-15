@@ -48,7 +48,7 @@ const Navbar = () => {
         ))}
       </nav>
       <div className="cta-buttons">
-        <Link href="/shop">
+        <Link href="/auth/login">
           <button className="bg-green-600 text-white font-semibold w-40 h-14 rounded-md hover:bg-black">
             Shop Now
           </button>
