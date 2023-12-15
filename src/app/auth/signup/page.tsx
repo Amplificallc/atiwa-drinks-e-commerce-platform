@@ -46,7 +46,7 @@ const SignUp: React.FC = () => {
         onSubmit={handleSignUp}
         className="flex flex-col gap-y-6 w-2/5 px-[30px] py-6 shadow-xl rounded-xl"
       >
-        <div className="pt-[12px] py-1 pl-[20px] outline-none border-[1.5px] border-black/50 rounded-lg  transition-all relative group focus-within:border-blue-500">
+        <div className="pt-[12px] py-1 pl-[20px] outline-none border-[1.5px] border-black/50 rounded-lg  transition-all relative group focus-within:border-green-600">
           <input
             type="text"
             value={fullname}
@@ -58,7 +58,7 @@ const SignUp: React.FC = () => {
             Full Name
           </label>
         </div>
-        <div className="pt-[12px] py-1 pl-[20px] outline-none border-[1.5px] border-black/50 rounded-lg  transition-all relative group focus-within:border-blue-500">
+        <div className="pt-[12px] py-1 pl-[20px] outline-none border-[1.5px] border-black/50 rounded-lg  transition-all relative group focus-within:border-green-600">
           <input
             type="email"
             value={email}
@@ -70,7 +70,7 @@ const SignUp: React.FC = () => {
             Email
           </label>
         </div>
-        <div className="pt-[12px] py-1 pl-[20px] outline-none border-[1.5px] border-black/50 rounded-lg  transition-all relative group focus-within:border-blue-500">
+        <div className="pt-[12px] py-1 pl-[20px] outline-none border-[1.5px] border-black/50 rounded-lg  transition-all relative group focus-within:border-green-600">
           <input
             type="password"
             value={password}
@@ -85,15 +85,15 @@ const SignUp: React.FC = () => {
 
         <button
           type="submit"
-          className="py-[10px] bg-blue-500 text-white rounded-lg"
+          className="py-[10px] bg-green-600 text-white rounded-lg"
         >
           Sign Up
         </button>
 
         <p className="text-center text-black/50">
           Already have an account?
-          <Link href="/signin">
-            <span className="text-blue-500 ml-1">Log In</span>
+          <Link href="/auth/login">
+            <span className="text-green-500 ml-1">Log In</span>
           </Link>
         </p>
       </form>

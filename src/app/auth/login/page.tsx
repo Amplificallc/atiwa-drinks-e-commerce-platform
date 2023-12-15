@@ -33,7 +33,7 @@ const SignIn: React.FC = () => {
         onSubmit={handleSignUp}
         className="flex flex-col gap-y-6 w-2/5 px-[30px] py-6 shadow-xl rounded-xl"
       >
-        <div className="pt-[12px] py-1 pl-[20px] outline-none border-[1.5px] border-black/50 rounded-lg  transition-all relative group focus-within:border-blue-500">
+        <div className="pt-[12px] py-1 pl-[20px] outline-none border-[1.5px] border-black/50 rounded-lg  transition-all relative group focus-within:border-green-600">
           <input
             type="email"
             value={email}
@@ -45,7 +45,7 @@ const SignIn: React.FC = () => {
             Email
           </label>
         </div>
-        <div className="pt-[12px] py-1 pl-[20px] outline-none border-[1.5px] border-black/50 rounded-lg  transition-all relative group focus-within:border-blue-500">
+        <div className="pt-[12px] py-1 pl-[20px] outline-none border-[1.5px] border-black/50 rounded-lg  transition-all relative group focus-within:border-green-600">
           <input
             type="password"
             value={password}
@@ -60,15 +60,15 @@ const SignIn: React.FC = () => {
 
         <button
           type="submit"
-          className="py-[10px] bg-blue-500 text-white rounded-lg"
+          className="py-[10px] bg-green-600 text-white rounded-lg"
         >
           Login
         </button>
 
         <p className="text-center text-black/50">
-          Don't have an account?
-          <Link href="/signup">
-            <span className="text-blue-500 ml-1">Signup</span>
+          Don&#39;t have an account?
+          <Link href="/auth/signup">
+            <span className="text-green-600 ml-1">Signup</span>
           </Link>
         </p>
       </form>
