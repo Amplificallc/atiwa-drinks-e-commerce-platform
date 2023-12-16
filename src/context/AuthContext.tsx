@@ -7,7 +7,7 @@ import React, {
   ReactNode,
 } from "react";
 
-import {User, onAuthStateChanged} from "firebase/auth"
+import { User, onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/firebase";
 import { useRouter } from "next/navigation";
 
@@ -26,13 +26,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
 
-  // console.log(user, "auth context");
+  // console.log(user, "auth context", user);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user:any) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        router.push("/shop");
       }
     });
     return () => unsubscribe();

@@ -1,11 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase";
 import { getDatabase, ref, set } from "firebase/database";
+import toast from "react-hot-toast";
 
 const SignUp: React.FC = () => {
+  const router = useRouter();
   const [fullname, setFullname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -20,7 +23,8 @@ const SignUp: React.FC = () => {
         password
       );
       const user = userCrendentials.user;
-      console.log("user is", user);
+      router.push("/shop");
+      toast.success("Sign up sucessfull");
 
       // Get a reference to the Realtime Database
       const db = getDatabase();
@@ -36,7 +40,9 @@ const SignUp: React.FC = () => {
       console.log("User created with additional info in Realtime Database");
     } catch (error) {
       // Handle sign-up error
-      alert("Error");
+      const errorMessage =
+        error instanceof Error ? error.message : "An unknown error occurred";
+      toast.error(errorMessage);
     }
   };
 

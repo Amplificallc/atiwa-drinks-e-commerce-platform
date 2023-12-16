@@ -28,6 +28,7 @@ const Navbar = () => {
       path: "#contact",
     },
   ];
+
   return (
     <section className="navigation fixed top-0 w-full shadow-md h-20 bg-white flex flex-row justify-between items-center px-16">
       <div className="logo">

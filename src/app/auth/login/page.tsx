@@ -1,29 +1,32 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase";
+import toast from "react-hot-toast";
 
 const SignIn: React.FC = () => {
+  const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  // const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // if (password !== confirmPassword) {
-    //   alert("Passwords do not match");
-    //   return;
-    // }
-
     try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
-      // Handle successful sign-up, like redirecting to the home page
-      console.log("user is logged in", user);
+      const userCredentials = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      // const user = userCredentials.user;
+      router.push("/shop");
+      toast.success("Log in succesfull");
     } catch (error) {
-      // Handle sign-up error
-      alert("Error");
+      const errorMessage =
+        error instanceof Error ? error.message : "An unknown error occurred";
+      toast.error(errorMessage);
     }
   };
 
@@ -60,7 +63,7 @@ const SignIn: React.FC = () => {
 
         <button
           type="submit"
-          className="py-[10px] bg-green-600 text-white rounded-lg"
+          className="py-[10px] bg-green-600 hover:bg-black transition-all text-white rounded-lg"
         >
           Login
         </button>
