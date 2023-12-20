@@ -7,7 +7,9 @@ const Shop = () => {
   return (
     <div>
       <ShopHero />
-      <div className="lg:px-[70px]">{/* <Products /> */}</div>
+      <div className="lg:px-[50px]">
+        <Products />
+      </div>
     </div>
   );
 };
