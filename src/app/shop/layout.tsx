@@ -5,7 +5,7 @@ export default function ShopLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="lg:px-[200px]">
+    <main>
       <Navbar />
       {children}
     </main>

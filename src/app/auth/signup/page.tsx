@@ -12,10 +12,11 @@ const SignUp: React.FC = () => {
   const [fullname, setFullname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+    setIsLoading(true);
     try {
       const userCrendentials = await createUserWithEmailAndPassword(
         auth,
@@ -25,6 +26,7 @@ const SignUp: React.FC = () => {
       const user = userCrendentials.user;
       router.push("/shop");
       toast.success("Sign up sucessfull");
+      setIsLoading(false);
 
       // Get a reference to the Realtime Database
       const db = getDatabase();
@@ -43,6 +45,7 @@ const SignUp: React.FC = () => {
       const errorMessage =
         error instanceof Error ? error.message : "An unknown error occurred";
       toast.error(errorMessage);
+      setIsLoading(false);
     }
   };
 
@@ -91,9 +94,9 @@ const SignUp: React.FC = () => {
 
         <button
           type="submit"
-          className="py-[10px] bg-green-600 text-white rounded-lg"
+          className="py-[10px] bg-green-600 hover:bg-black transition-all text-white rounded-lg"
         >
-          Sign Up
+          {isLoading ? "Please wait" : "Sign Up"}
         </button>
 
         <p className="text-center text-black/50">

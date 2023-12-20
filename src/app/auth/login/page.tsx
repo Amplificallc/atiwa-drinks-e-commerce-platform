@@ -13,6 +13,7 @@ const SignIn: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
+    setIsLoading(true);
     event.preventDefault();
     try {
       const userCredentials = await signInWithEmailAndPassword(
@@ -20,13 +21,14 @@ const SignIn: React.FC = () => {
         email,
         password
       );
-      // const user = userCredentials.user;
       router.push("/shop");
       toast.success("Log in succesfull");
+      setIsLoading(false);
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : "An unknown error occurred";
       toast.error(errorMessage);
+      setIsLoading(false);
     }
   };
 
@@ -65,7 +67,7 @@ const SignIn: React.FC = () => {
           type="submit"
           className="py-[10px] bg-green-600 hover:bg-black transition-all text-white rounded-lg"
         >
-          Login
+          {isLoading ? "Please wait" : "Login"}
         </button>
 
         <p className="text-center text-black/50">

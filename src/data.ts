@@ -8,13 +8,13 @@ const drinks: Drink[] = [
     price: 3.99,
     description: "A beautiful sunset over the mountains",
   },
-  {
-    id: 2,
-    name: "Liqour",
-    url: "/d2.png",
-    price: 3.99,
-    description: "A beautiful sunset over the mountains",
-  },
+  // {
+  //   id: 2,
+  //   name: "Liqour",
+  //   url: "/d2.png",
+  //   price: 3.99,
+  //   description: "A beautiful sunset over the mountains",
+  // },
   // {
   //   id: 3,
   //   name: "Liqour",
@@ -25,7 +25,7 @@ const drinks: Drink[] = [
   // {
   //   id: 4,
   //   name: "Liqour",
-  //   url: "/d2.png",
+  //   url: "/d4.png",
   //   price: 3.99,
   //   description: "A beautiful sunset over the mountains",
   // },

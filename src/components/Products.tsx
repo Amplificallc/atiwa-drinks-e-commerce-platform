@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard";
 const Products = () => {
   return (
     <div>
-      <div className="flex justify-between flex-wrap">
+      <div className="flex justify-center gap-4 flex-wrap bg-red-400">
         {drinks.map((item) => (
           <ProductCard key={item.id} {...item} />
         ))}
