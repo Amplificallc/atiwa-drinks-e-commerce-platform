@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { AuthProvider } from "@/context/AuthContext";
 import { Toaster } from "react-hot-toast";
+import { CartProvider } from "@/context/CartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +22,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-          <Toaster />
-          <div className="">{children}</div>
+          <CartProvider>
+            <Toaster />
+            <div className="">{children}</div>
+          </CartProvider>
         </AuthProvider>
       </body>
     </html>
