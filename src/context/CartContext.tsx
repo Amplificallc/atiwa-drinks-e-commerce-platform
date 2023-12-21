@@ -1,10 +1,11 @@
 "use client";
 import { createContext, useContext, useState, ReactNode } from "react";
+import toast from "react-hot-toast";
 
 import { CartItem } from "@/types";
 
 type CartContextType = {
-  items: CartItem[];
+  cartItems: CartItem[];
   addItem: (item: CartItem) => void;
   removeItem: (itemId: string) => void;
 };
@@ -16,7 +17,7 @@ type CartProviderProps = {
 };
 
 export const CartProvider = ({ children }: CartProviderProps) => {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const [cartItems, setItems] = useState<CartItem[]>([]);
 
   const addItem = (newItem: CartItem) => {
     setItems((prevItems) => {
@@ -31,6 +32,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         return [...prevItems, { ...newItem, quantity: 1 }];
       }
     });
+    toast.success(`${newItem.name} ADDED TO CART`);
   };
 
   const removeItem = (itemId: string) => {
@@ -49,7 +51,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   };
 
   return (
-    <CartContext.Provider value={{ items, addItem, removeItem }}>
+    <CartContext.Provider value={{ cartItems, addItem, removeItem }}>
       {children}
     </CartContext.Provider>
   );

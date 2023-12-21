@@ -6,12 +6,15 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { signOut } from "firebase/auth";
 import { auth } from "@/firebase";
 import { useAuth } from "@/context/AuthContext";
+import { useCart } from "@/context/CartContext";
 
 const Navbar = () => {
   const router = useRouter();
   const [hasShadow, setHasShadow] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { setUser, user } = useAuth();
+  const { cartItems } = useCart();
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 60) {
@@ -35,6 +38,18 @@ const Navbar = () => {
     }
   };
 
+  const totalQuantities = cartItems.reduce(
+    (total, item) => (total += item.quantity),
+    0
+  );
+
+  console.log(totalQuantities);
+
+  if (isOpen) {
+    alert("Shopping cart is being implemented. Please wait...");
+    setIsOpen(false);
+  }
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 ${
@@ -55,8 +70,8 @@ const Navbar = () => {
               className="text-2xl relative"
             >
               <MdOutlineAddShoppingCart className="cursor-pointer text-[30px]" />
-              <span className="absolute -right-2 -top-1 text-[12px] w-[18px] h-[18px] bg-red-500 text-white rounded-full flex justify-center items-center font-bold">
-                2
+              <span className="absolute -right-2 -top-1 text-[13px] w-[20px] h-[20px] bg-red-500 text-white rounded-full flex justify-center items-center font-bold p-[10px]">
+                {totalQuantities}
               </span>
             </div>
           </div>

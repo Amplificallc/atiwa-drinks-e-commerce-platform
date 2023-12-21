@@ -12,8 +12,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
   description,
   price,
 }) => {
-  const { items, addItem } = useCart();
-  console.log(items);
+  const { cartItems, addItem } = useCart();
+  console.log(cartItems);
 
   const handleAddToCart = () => {
     const itemToAdd: CartItem = {
@@ -24,11 +24,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
       description,
       quantity: 1,
     };
-
     addItem(itemToAdd);
   };
   return (
-    <div className="lg:w-[240px] py-5 mb-4 bg-gray-100/50 shadow-lg rounded-lg transition-all flex items-center flex-col">
+    <div className="lg:w-[240px] py-5 mb-4  shadow-lg rounded-lg transition-all flex items-center flex-col">
       <div className="mb-6 overflow-hidden">
         <img src={url} alt={name} className="h-[150px] drop-shadow-xl" />
       </div>
